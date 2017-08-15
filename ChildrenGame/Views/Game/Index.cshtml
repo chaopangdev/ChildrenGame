@@ -1,0 +1,41 @@
+﻿@using ChildrenGame.Models
+@using Newtonsoft.Json
+@model ChildrenGame.Models.ResultViewModel
+
+@{
+    ViewBag.Title = "Game";
+}
+
+<div class="jumbotron">
+    <h1>Children Game</h1>
+    <p class="lead">Click the "Play" button to get the game result.</p>
+
+@if (Model != null)
+{
+    if (Model.Winner > -1)
+    {
+        <div class="alert alert-success" role="alert">
+            <p class="lead"><strong>Game ID</strong> : @Model.GameID</p>
+            <p class="lead"><strong>Game parameters are</strong> : children count(@Model.ChildrenCount), eleminate count (@Model.EliminateCount)</p>
+            <p class="lead"><strong>Winner</strong> : @Model.Winner</p>
+            <p class="lead"><strong>Eliminate Order</strong> : @Html.Raw(JsonConvert.SerializeObject(Model.EliminateOrder))</p>
+        </div>
+
+        if (String.IsNullOrEmpty(Model.Error))
+        {
+            <div class="alert-success" role="alert">
+                <p class="lead"><strong>Result uploaded.</strong></p>
+            </div>
+        }
+    }
+
+    if (!String.IsNullOrEmpty(Model.Error))
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong>Error</strong> : @Model.Error
+        </div>
+    }
+}
+
+    <p><a href='@Url.Action("Play", "Game")' class="btn btn-primary btn-lg">Play &raquo;</a></p>
+</div>
