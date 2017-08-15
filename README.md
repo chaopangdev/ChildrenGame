@@ -10,7 +10,7 @@ and then upload the result to remote API.
 
 ## Installation
 
-git clone https://github.com/chaopangdev/ChildrenGame.git
+git clone https://github.com/chaopangdev/ChildrenGame.git.
 Load the solution into Visual Studio and build the solution.
 
 ## Test
