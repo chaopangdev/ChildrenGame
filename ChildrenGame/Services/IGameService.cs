@@ -7,7 +7,7 @@ namespace ChildrenGame.Services
     /// <summary>
     /// An interface discribes the methods exposed to controller layer
     /// </summary>
-    interface IGameService
+    public interface IGameService
     {
         /// <summary>
         /// Play the game asynchronously, including loading parameters, processing calculation and handling result.
