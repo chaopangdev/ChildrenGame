@@ -36,12 +36,12 @@ namespace ChildrenGame.Services
                 {
                     _logger.Debug("Start calling third party API to load parameters...");
                     HttpResponseMessage response = await httpClient.GetAsync(_URI, cancellationToken);
-                    _logger.DebugFormat("Load parameter completed with status code {0}", response.StatusCode);
+                    _logger.Debug($"Load parameter completed with status code {response.StatusCode}");
 
                     if (response.IsSuccessStatusCode)
                     {
                         gameParameter = await response.Content.ReadAsAsync<GameParameter>();
-                        _logger.DebugFormat("Parameter loaded : {0}", gameParameter.ToString());
+                        _logger.Debug($"Parameter loaded : {gameParameter.ToString()}");
                     }
                 }
             }
@@ -71,7 +71,7 @@ namespace ChildrenGame.Services
                 {
                     _logger.Debug("Start calling third party API to upload result...");
                     HttpResponseMessage response = await httpClient.PostAsJsonAsync(_URI + gameResult.GameID, gameResult, cancellationToken);
-                    _logger.DebugFormat("Upload result completed with status code {0}", response.StatusCode);
+                    _logger.Debug($"Upload result completed with status code {response.StatusCode}");
                     if (response.IsSuccessStatusCode)
                         isSendSuccessful = true;
                 }

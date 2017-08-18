@@ -42,14 +42,14 @@ namespace ChildrenGame.Services
                 //Handle parameter error scenarios
                 if (gameParameter == null)
                 {
-                    gameContext.Error = String.Format("Failed to load parameters.");
+                    gameContext.Error = "Failed to load parameters.";
                     return gameContext;
                 }
                 else if (gameParameter.ChildrenCount <= 0 || gameParameter.EliminateCount <= 0)
                 {
-                    gameContext.Error = String.Format(
-                        "Wrong parameters loaded : children count ({0}), eliminate count ({1})", 
-                        gameParameter.ChildrenCount, gameParameter.EliminateCount);
+                    gameContext.Error =
+                        $"Wrong parameters loaded : children count ({gameParameter.ChildrenCount}), " +
+                        $"eliminate count ({gameParameter.EliminateCount})";
                     return gameContext;
                 }
                 #endregion
@@ -83,9 +83,9 @@ namespace ChildrenGame.Services
                 }
                 else
                 {
-                    gameContext.Error = String.Format(
-                        "Game processed incorrectly with paramters : children count ({0}), eliminate count ({1})",
-                        gameParameter.ChildrenCount, gameParameter.EliminateCount);
+                    gameContext.Error =
+                        $"Game processed incorrectly with paramters : children count ({gameParameter.ChildrenCount}), " +
+                        $"eliminate count ({gameParameter.EliminateCount})";
                 }
                 #endregion
 
